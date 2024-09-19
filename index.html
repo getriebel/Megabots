@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megabots</title>
+    <link rel="stylesheet" href="megabots.css"/>
+  </head>
+  <body>
+    <div id="lab" class="content-container active">
+        <h1>Lab</h1>
+        <div>
+            <div class="robot-container">
+                <img id="labLegs" class="robot-part" src="img/parts/megalegs.png" alt="Legs">
+                <img id="labRightArm" class="robot-part" src="img/parts/megaright.png" alt="Right Arm">
+                <img id="labLeftArm" class="robot-part" src="img/parts/megaleft.png" alt="Left Arm">
+                <img id="labHead" class="robot-part" src="img/parts/megahead.png" alt="Head">
+            </div>
+            <label for="selectHead">Head:</label>
+            <select id="selectHead" onchange="calculateRobotAssembly()">
+                <option value="mega" selected>Mega</option>
+                <option value="proto">Proto</option>
+                <option value="cut">Cut</option>
+                <option value="elec">Elec</option>
+                <option value="fire">Fire</option>
+                <option value="ice">Ice</option>
+            </select>
+            <label for="selectLeftArm">Left Arm:</label>
+            <select id="selectLeftArm" onchange="calculateRobotAssembly()">
+                <option value="mega" selected>Mega</option>
+                <option value="proto">Proto</option>
+                <option value="cut">Cut</option>
+                <option value="elec">Elec</option>
+                <option value="fire">Fire</option>
+                <option value="ice">Ice</option>
+            </select>
+            <label for="selectRightArm">Right Arm:</label>
+            <select id="selectRightArm" onchange="calculateRobotAssembly()">
+                <option value="mega" selected>Mega</option>
+                <option value="proto">Proto</option>
+                <option value="cut">Cut</option>
+                <option value="elec">Elec</option>
+                <option value="fire">Fire</option>
+                <option value="ice">Ice</option>
+            </select>
+            <label for="selectLegs">Legs:</label>
+            <select id="selectLegs" onchange="calculateRobotAssembly()">
+                <option value="mega" selected>Mega</option>
+                <option value="proto">Proto</option>
+                <option value="cut">Cut</option>
+                <option value="elec">Elec</option>
+                <option value="fire">Fire</option>
+                <option value="ice">Ice</option>
+            </select>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hit Points</th>
+                    <th>Power</th>
+                    <th>Armor</th>
+                    <th>Charge</th>
+                    <th>Speed</th>
+                    <th>Left Attack</th>
+                    <th>Right Attack</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="labHP">10</td>
+                    <td id="labPower">10</td>
+                    <td id="labArmor">9</td>
+                    <td id="labCharge">14</td>
+                    <td id="labSpeed">14</td>
+                    <td id="labLeftAttack">Charged Shot</td>
+                    <td id="labRightAttack">Mega Buster</td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="showDiv('robotmaster')" disabled>Go to Arena (coming soon)</button>
+    </div>
+   <div id="robotmaster" class="content-container">
+    <h1>Robot Master</h1>
+    <input type="radio" value="Cutman" id="radio-cut" checked><label for="radio-cut">Cutman</label>
+    <input type="radio" value="Elecman" id="radio-elec" disabled><label for="radio-elec">Elecman</label>
+    <input type="radio" value="Iceman" id="radio-ice" disabled><label for="radio-ice">Iceman</label>
+    <input type="radio" value="Fireman" id="radio-fire" disabled><label for="radio-fire">Fireman</label>
+   </div>
+    <div id="arena" class="content-container">
+        <h1>Arena</h1>
+        <label for="arenaHPRobotA">HP:</label>
+        <input type="number" value="500" id="arenaHPRobotA" disabled>
+        <div class="arena-grid">
+            <div class="blue-cell" id="cell-1-1">1-1</div>
+            <div class="blue-cell" id="cell-2-1">2-1</div>
+            <div class="red-cell" id="cell-3-1">3-1</div>
+            <div class="red-cell" id="cell-4-1">4-1</div>
+            <div class="blue-cell" id="cell-1-2">
+                <div class="robot-container">
+                    <img id="arenaLegs" class="robot-part" src="img/parts/megalegs.png" alt="Legs">
+                    <img id="arenaRightArm" class="robot-part" src="img/parts/megaright.png" alt="Right Arm">
+                    <img id="arenaLeftArm" class="robot-part" src="img/parts/megaleft.png" alt="Left Arm">
+                    <img id="arenaHead" class="robot-part" src="img/parts/megahead.png" alt="Head">
+                </div>
+            </div>
+            <div class="blue-cell" id="cell-2-2">2-2</div>
+            <div class="red-cell" id="cell-3-2">3-2</div>
+            <div class="red-cell" id="cell-4-2">
+                <img src="img/robotmasters/Cutman.png">
+            </div>
+            <div class="blue-cell" id="cell-1-3">1-3</div>
+            <div class="blue-cell" id="cell-2-3">2-3</div>
+            <div class="red-cell" id="cell-3-3">3-3</div>
+            <div class="red-cell" id="cell-4-3">4-3</div>
+        </div>
+        <label for="arenaHPRobotB">HP:</label>
+        <input type="number" value="300" id="arenaHPRobotB" disabled>
+        <button onclick="moveRobotA('up')">Up</button>
+        <button onclick="moveRobotA('down')">Down</button>
+    </div>
+    <script type="text/javascript" src="scripts/robotsummary.js"></script>
+    <script type="text/javascript" src="scripts/parts.js"></script>
+    <script type="text/javascript" src="scripts/attacks.js"></script>
+    <script type="text/javascript" src="scripts/lab.js"></script>
+    <script type="text/javascript" src="scripts/arena.js"></script>
+  </body>
+</html>

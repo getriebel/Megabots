@@ -1,0 +1,51 @@
+.content-container {
+    display: none;
+}
+
+/* Show the active div */
+.active {
+    display: block;
+}
+
+.robot-container {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 20px auto; /* optional */
+}
+
+.robot-part {
+    position: absolute; /* to ensure all parts overlap in the same container */
+    width: 64px;
+    height: 64px;
+}
+
+.arena-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 64px);
+    grid-template-rows: repeat(3, 64px);
+    gap: 5px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+.blue-cell, .red-cell {
+    width: 64px;
+    height: 64px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 24px;
+}
+
+.blue-cell {
+    border: 2px solid blue;
+    box-sizing: border-box; /* Ensures border is included in width/height calculations */
+}
+
+.red-cell {
+    border: 2px solid red;
+    box-sizing: border-box; /* Ensures border is included in width/height calculations */
+}
